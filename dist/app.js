@@ -146,7 +146,10 @@ async function createPortal(){
  portal=new THREE.Group();portal.position.copy(entry);portal.quaternion.copy(initialQ);portalScene.add(portal);
  const d=2.83,h=2*d*Math.tan(THREE.MathUtils.degToRad(22)),w=h*16/9;
  function piece(u0,u1,pivot=false){const g=new THREE.PlaneGeometry(w*(u1-u0),h);const uv=g.attributes.uv;for(let i=0;i<uv.count;i++)uv.setX(i,u0+uv.getX(i)*(u1-u0));const m=new THREE.MeshBasicMaterial({map:texture,transparent:true,side:THREE.DoubleSide,toneMapped:false,depthWrite:true});portalMats.push(m);const mesh=new THREE.Mesh(g,m);mesh.position.set(w*((u0+u1)/2-.5),0,-d);if(pivot){portalHinge=new THREE.Group();portalHinge.position.set(w*(u0-.5),0,-d);mesh.position.set(w*(u1-u0)/2,0,0);portalHinge.add(mesh);portal.add(portalHinge);}else portal.add(mesh);}
- piece(0,.414);piece(.414,.686,true);piece(.686,1);portal.visible=false;
+ // Measured on the 1920 px threshold image. The lock occupies x=1310..1345;
+ // keep it entirely on the moving leaf, with an 11 px timber margin.
+ const hingeU=795/1920,latchU=1356/1920;
+ piece(0,hingeU);piece(hingeU,latchU,true);piece(latchU,1);portal.visible=false;
 }
 
 function showWelcome(){const w=$('#welcome');w.hidden=false;w.inert=false;w.style.opacity=1;w.style.pointerEvents='auto';}

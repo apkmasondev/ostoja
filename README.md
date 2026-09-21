@@ -30,7 +30,7 @@ Następnie otwórz http://localhost:8080. Wymagana jest przeglądarka z WebGL 2 
 
 Workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publikuje katalog `dist` po każdym pushu na gałąź `main`. Źródło publikacji w repozytorium: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-Wszystkie ścieżki są względne, więc strona działa pod adresem `https://<użytkownik>.github.io/<repozytorium>/`. Pełna wizyta pobiera około 25 MB (model 11 MB, film 7 MB albo 3 MB na telefonie).
+Wszystkie ścieżki są względne, więc strona działa pod adresem `https://<użytkownik>.github.io/<repozytorium>/`. Pełna wizyta pobiera około 26 MB (model 12 MB, film 7 MB albo 3 MB na telefonie).
 
 ## Struktura
 
@@ -49,6 +49,7 @@ dist/
 
 - Model przygotowany w Blenderze, eksport glTF z kompresją Draco i teksturami 1K.
 - Jezioro z lustrzanym odbiciem krajobrazu, falami, efektem Fresnela i ścieżką słońca.
+- Drzewa w ogrodzie mają połączoną strukturę pień → konary → gałęzie → gałązki, a każdy liść wyrasta z gałązki. Cieniowanie liści podąża za kształtem korony.
 - Las (świerki, sosny i drzewa liściaste) rośnie w kępach, tylko tam, gdzie widać go z domu. Każdy gatunek to kilka instancjonowanych partii, więc fragmenty poza kadrem nie są rysowane.
 - Postprocessing z MSAA, SSAO (desktop), subtelny bloom i tonemapping ACES.
 - Jakość dopasowuje się do wydajności: przy trwałych spadkach klatek najpierw tanieją efekty, dopiero potem rozdzielczość, a po poprawie jakość wraca.
