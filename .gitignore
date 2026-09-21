@@ -1,0 +1,20 @@
+# Publikowane są wyłącznie: strona (dist), README, workflow Pages i ten plik.
+# Wszystko inne (źródła Blender, materiały wejściowe, skrypty, raporty QA,
+# konfiguracje narzędzi i środowiska) zostaje lokalnie.
+/*
+!/dist/
+!/README.md
+!/.github/
+!/.gitignore
+
+.github/*
+!.github/workflows/
+.github/workflows/*
+!.github/workflows/pages.yml
+
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.map
+.env*
